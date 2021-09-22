@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pills_scheduler.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Pallete -->
+            <Color x:Key="primaryGreen">#91CA47</Color>
+            <Color x:Key="primaryDarkGreen">#6FA22E</Color>
+            
+            <!--Fonts-->
+            <x:Double x:Key="fontSize">48</x:Double>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

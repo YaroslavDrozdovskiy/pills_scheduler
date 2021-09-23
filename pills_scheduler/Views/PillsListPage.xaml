@@ -2,43 +2,54 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="pills_scheduler.Views.PillsListPage"
+             xmlns:local="clr-namespace:pills_scheduler"
              Title="Pills Scheduler">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Clicked="OnPillAdded">
+        <ToolbarItem Text="+" Clicked="OnPillAdded" Order="Default">
             <ToolbarItem.IconImageSource>
                 <OnPlatform x:TypeArguments="ImageSource">
                     <On Platform="Android, UWP"
-                        Value="plus.png" />
+                        Value="add_x2.png" />
                 </OnPlatform>
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="listView"
+    <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+        <ScrollView>
+            <ListView x:Name="listView"
               Margin="20"
               ItemSelected="OnListPillSelected">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Margin="20,0,0,0"
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="20,0,0,0"
                                  Orientation="Horizontal"
                                  HorizontalOptions="FillAndExpand">
-                        <Label Text="{Binding Name}"
-                               VerticalTextAlignment="Center"
-                               HorizontalOptions="StartAndExpand" />
-                        <!--<Image Source="check.png"
+                                <Label Text="{Binding Name}" VerticalTextAlignment="Start"
+                                                 HorizontalOptions="Start"  FontSize="Large" FontAttributes="Bold"/>
+
+                                <Label Text="{Binding Type}" VerticalTextAlignment="Start"
+                                                 HorizontalOptions="Start" />
+                                <!--<Image Source="check.png"
                                HorizontalOptions="End"
                                IsVisible="{Binding Done}" />-->
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+
+            <Label x:Name="pillInitialDateLabel" Text="Выберите дату" FontSize="Medium"/>
+            <DatePicker x:Name="pillInitialDatePicker" Format="d" Date="{Binding currentDate}" 
+                        IsEnabled="True" FontAttributes="Italic" />
+        </StackLayout>
+        <BoxView HorizontalOptions="CenterAndExpand"/>
+
+    </StackLayout>
+
 </ContentPage>

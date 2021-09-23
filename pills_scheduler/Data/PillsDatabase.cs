@@ -10,7 +10,7 @@ namespace pills_scheduler.Data
 {
     class PillsDatabase
     {
-        static SQLiteAsyncConnection Database;
+        private static SQLiteAsyncConnection Database;
 
         public static readonly AsyncLazy<PillsDatabase> Instance = new AsyncLazy<PillsDatabase>(async () =>
         {

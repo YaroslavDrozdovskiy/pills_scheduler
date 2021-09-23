@@ -1,5 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="pills_scheduler.Views.PillPage">
+             x:Class="pills_scheduler.Views.PillPage"
+             Title="{Binding Name}">
+
+    <ScrollView>
+        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
+
+            <Label Text="Название препарата"/>
+            <Entry x:Name="pillNameEntry" Placeholder="Введите название" Text="{Binding Name}" FontAttributes="Italic"/>
+
+
+            <Label Text="Тип препарата"/>
+            <Picker x:Name="pillTypePicker" Title="Выбрать" SelectedItem="{Binding Type}" FontAttributes="Italic">
+                <Picker.Items>
+                    <x:String>Таблетка</x:String>
+                    <x:String>Капсула</x:String>
+                    <x:String>Капли</x:String>
+                    <x:String>Микстура</x:String>
+                    <x:String>Мазь</x:String>
+                    <x:String>Укол</x:String>
+                    <x:String>Процедура</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Доза, шт"/>
+            <Picker x:Name="pillCountPicker" Title="Выбрать" SelectedItem="{Binding Count}" FontAttributes="Italic">
+                <Picker.Items>
+                    <x:String>1 таблетка</x:String>
+                    <x:String>2 таблетки</x:String>
+                    <x:String>3 таблетки</x:String>
+                    <x:String>½ таблетки</x:String>
+                    <x:String>¼ таблетки</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Совместимость приема с едой"/>
+            <Picker x:Name="pillCompWithFoodPicker" Title="Выбрать" SelectedItem="{Binding CompWithFood}" FontAttributes="Italic">
+                <Picker.Items>
+                    <x:String>До еды</x:String>
+                    <x:String>После еды</x:String>
+                    <x:String>Независимо</x:String>
+                </Picker.Items>
+            </Picker>
+            
+            <Label Text="Частота приема в день"/>
+            <Picker x:Name="pillFreqInDayPicker" Title="Выбрать" SelectedItem="{Binding FreqInDay}" 
+                    FontAttributes="Italic" SelectedIndexChanged="pillFreqInDayChanged">
+                <Picker.Items>
+                    <x:String>1 раз</x:String>
+                    <x:String>2 раза</x:String>
+                    <x:String>3 раза</x:String>
+                </Picker.Items>
+            </Picker>
+            <StackLayout x:Name="pillFreqInDayLayout" HorizontalOptions="FillAndExpand" Padding="20,0,0,0" BackgroundColor="AntiqueWhite">
+                
+            </StackLayout>
+
+
+            <Label Text="Частота приема по дням"/>
+            <Picker x:Name="pillFreqByDaysPicker" Title="Выбрать" SelectedItem="{Binding FreqByDays}" FontAttributes="Italic">
+                <Picker.Items>
+                    <x:String>Каждый день</x:String>
+                    <x:String>Каждые 2 дня</x:String>
+                    <x:String>Каждые 3 дня</x:String>
+                    <x:String>Каждую неделю</x:String>
+                    <x:String>Каждые 2 недели</x:String>
+                    <x:String>Каждые 3 недели</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Длительность приема курса"/>
+            <Picker x:Name="pillCourseDurationPicker" Title="Выбрать" SelectedItem="{Binding CourseDuration}" FontAttributes="Italic">
+                <Picker.Items>
+                    <x:String>Постоянно</x:String>
+                    <x:String>1 неделя</x:String>
+                    <x:String>2 недели</x:String>
+                    <x:String>3 недели</x:String>
+                    <x:String>4 недели</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <StackLayout>
+                <Label x:Name="pillInitialDateLabel" Text="Дата начала приема" FontSize="Medium"/>
+                <DatePicker x:Name="pillInitialDatePicker" Format="d" Date="{Binding InitialDate}" IsEnabled="True" FontAttributes="Italic"/>
+            </StackLayout>
+
+            <Button Text="Сохранить &#9989;" BackgroundColor="{StaticResource Key=saveButton}" TextColor="White" CornerRadius="10"
+                Clicked="OnSaveClicked"/>
+            <Button Text="Удалить ❌" BackgroundColor="{StaticResource Key=deleteButton}" TextColor="White" CornerRadius="10"
+                Clicked="OnDeleteClicked" />
+            <Button Text="Отмена    " TextColor="DarkGray" 
+                    BorderColor="LightGray" BorderWidth="3" Background="white" CornerRadius="10" FontAttributes="Bold"
+                Clicked="OnCancelClicked"/>
+            <BoxView HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+        
+
+    </ScrollView>
+
+
 </ContentPage>
+   

@@ -15,10 +15,5 @@ namespace pills_scheduler
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            button1.Text = "Зажал";
-        }
-
     }
 }

@@ -7,6 +7,9 @@
             <!-- Pallete -->
             <Color x:Key="primaryGreen">#91CA47</Color>
             <Color x:Key="primaryDarkGreen">#6FA22E</Color>
+            <Color x:Key="saveButton">#6FA22E</Color>
+            <Color x:Key="deleteButton">#B00020</Color>
+            <Color x:Key="cancelButton">#03DAC5</Color>
             
             <!--Fonts-->
             <x:Double x:Key="fontSize">48</x:Double>

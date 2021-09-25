@@ -2,6 +2,10 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using pills_scheduler.Views;
+using Plugin.LocalNotification;
+
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace pills_scheduler
 {
@@ -11,6 +15,9 @@ namespace pills_scheduler
         {
             InitializeComponent();
             MainPage = new NavigationPage(new PillsListPage());
+
+            //NotificationCenter.Current.NotificationTapped += OnLocalNotificationTapped;
+            //NotificationCenter.Current.NotificationReceived += OnLocalNotificationReceived;
         }
 
         protected override void OnStart()

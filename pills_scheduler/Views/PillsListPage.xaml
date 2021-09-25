@@ -16,25 +16,38 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
-    <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+    <StackLayout Orientation="Vertical">
         <ScrollView>
             <ListView x:Name="listView"
               Margin="20"
-              ItemSelected="OnListPillSelected">
+              ItemSelected="OnListPillSelected" 
+                  HasUnevenRows="True"
+                  SeparatorColor="Gray">
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Margin="20,0,0,0"
-                                 Orientation="Horizontal"
-                                 HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding Name}" VerticalTextAlignment="Start"
-                                                 HorizontalOptions="Start"  FontSize="Large" FontAttributes="Bold"/>
+                            <StackLayout Margin="10,0,0,10"
+                                 Orientation="Vertical"
+                                 VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 
-                                <Label Text="{Binding Type}" VerticalTextAlignment="Start"
-                                                 HorizontalOptions="Start" />
-                                <!--<Image Source="check.png"
-                               HorizontalOptions="End"
-                               IsVisible="{Binding Done}" />-->
+
+                                <Label Text="{Binding Name}" VerticalTextAlignment="Center"
+                                                 HorizontalOptions="Start"  FontSize="Large" FontAttributes="Bold" 
+                                       TextColor="{StaticResource Key=primaryDarkGreen}"/>
+                                <!--<Label Text="|" VerticalTextAlignment="Center" 
+                                                 HorizontalOptions="Start"  FontSize="Large" FontAttributes="Bold"/>-->
+                                <Label Text="{Binding Type}" VerticalTextAlignment="Center" 
+                                            HorizontalOptions="Start"/>
+                                <!--<Label Text="|" VerticalTextAlignment="Center" 
+                                                 HorizontalOptions="Start"  FontSize="Large" FontAttributes="Bold"/>-->
+                                <Label Text="{Binding Count}" VerticalOptions="Center"
+                                       HorizontalOptions="Start" />
+                                <!--<Label Text="|" VerticalTextAlignment="Center" 
+                                                 HorizontalOptions="Start"  FontSize="Large" FontAttributes="Bold"/>-->
+                                <Label Text="{Binding FreqByDays}" VerticalOptions="Center"
+                                       HorizontalOptions="Start" />
+                                
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -43,10 +56,11 @@
         </ScrollView>
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+            <Button Text="Событие" Clicked="notifyButton"/>
 
-            <Label x:Name="pillInitialDateLabel" Text="Выберите дату" FontSize="Medium"/>
+            <Label x:Name="pillInitialDateLabel" Text="Выберите дату" FontSize="Medium" TextColor="{StaticResource Key=primaryDarkGreen}"/>
             <DatePicker x:Name="pillInitialDatePicker" Format="d" Date="{Binding currentDate}" 
-                        IsEnabled="True" FontAttributes="Italic" />
+                        IsEnabled="True" FontAttributes="Italic" DateSelected="pillInitialDatePicker_DateSelected"/>
         </StackLayout>
         <BoxView HorizontalOptions="CenterAndExpand"/>
 

@@ -7,6 +7,7 @@ using Android.OS;
 using Plugin.LocalNotification;
 using Android.Content;
 
+
 namespace pills_scheduler.Droid
 {
     [Activity(Label = "pills_scheduler", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]

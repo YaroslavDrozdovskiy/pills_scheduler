@@ -78,9 +78,6 @@ namespace pills_scheduler.Views
         //}
 
      
-
-
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();

@@ -60,22 +60,22 @@ namespace pills_scheduler.Views
         
 
 
-        private void notifyButton(object sender, EventArgs e)
-        {
-            var notification = new NotificationRequest
-            {
-                Description = $"Не то получишь по жопе",
-                Title = $"Бать, пора пить таблетки",
-                ReturningData = $"Dummy data",
-                NotificationId = 1337,
-            };
-            notification.Schedule.NotifyTime = DateTime.Now.AddSeconds(5);
-            notification.Schedule.RepeatType = NotificationRepeat.TimeInterval;
-            notification.Schedule.NotifyRepeatInterval = TimeSpan.FromSeconds(2);
-            //notification.Schedule.AndroidAllowedDelay = TimeSpan.FromSeconds(2);
+        //private void notifyButton(object sender, EventArgs e)
+        //{
+        //    var notification = new NotificationRequest
+        //    {
+        //        Description = $"Не то получишь по жопе",
+        //        Title = $"Бать, пора пить таблетки",
+        //        ReturningData = $"Dummy data",
+        //        NotificationId = 1337,
+        //    };
+        //    notification.Schedule.NotifyTime = DateTime.Now.AddSeconds(5);
+        //    notification.Schedule.RepeatType = NotificationRepeat.TimeInterval;
+        //    notification.Schedule.NotifyRepeatInterval = TimeSpan.FromSeconds(2);
+        //    //notification.Schedule.AndroidAllowedDelay = TimeSpan.FromSeconds(2);
 
-            NotificationCenter.Current.Show(notification);
-        }
+        //    NotificationCenter.Current.Show(notification);
+        //}
 
      
 
@@ -208,9 +208,9 @@ namespace pills_scheduler.Views
                 };
                 notification.Schedule.NotifyTime = DateTime.Today.Date.Add((TimeSpan)time);
                 notification.Schedule.RepeatType = NotificationRepeat.TimeInterval;
-                notification.Schedule.NotifyRepeatInterval = TimeSpan.FromSeconds(5);
+                notification.Schedule.NotifyRepeatInterval = TimeSpan.FromMinutes(10);
                 notification.Schedule.AndroidAllowedDelay = TimeSpan.FromSeconds(10);
-                notification.Schedule.NotifyAutoCancelTime = notification.Schedule.NotifyTime + TimeSpan.FromSeconds(21);
+                notification.Schedule.NotifyAutoCancelTime = notification.Schedule.NotifyTime + TimeSpan.FromMinutes(21);
 
                 NotificationCenter.Current.Show(notification);
                 i++;

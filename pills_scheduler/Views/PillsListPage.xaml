@@ -56,7 +56,7 @@
         </ScrollView>
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-            <Button Text="Событие" Clicked="notifyButton"/>
+            
 
             <Label x:Name="pillInitialDateLabel" Text="Выберите дату" FontSize="Medium" TextColor="{StaticResource Key=primaryDarkGreen}"/>
             <DatePicker x:Name="pillInitialDatePicker" Format="d" Date="{Binding currentDate}" 
